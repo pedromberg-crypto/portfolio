@@ -140,6 +140,7 @@ function ClientCard({ cliente: c }: { cliente: Cliente }) {
             <PlaceholderPrint
               src={c.prints[0].src}
               alt={c.prints[0].alt}
+              type={c.prints[0].type ?? "image"}
             />
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
@@ -162,14 +163,22 @@ function ClientCard({ cliente: c }: { cliente: Cliente }) {
   );
 }
 
-function PlaceholderPrint({ src, alt }: { src: string; alt: string }) {
+function PlaceholderPrint({
+  src,
+  alt,
+  type,
+}: {
+  src: string;
+  alt: string;
+  type: "image" | "video";
+}) {
   const [error, setError] = React.useState(false);
 
   if (error) {
     return (
       <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-primary/5 to-transparent">
         <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70">
-          print
+          {type === "video" ? "vídeo" : "print"}
         </div>
         <div className="mt-2 font-display text-xl text-primary/70">
           em breve
@@ -181,13 +190,29 @@ function PlaceholderPrint({ src, alt }: { src: string; alt: string }) {
     );
   }
 
+  if (type === "video") {
+    return (
+      <video
+        src={src}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        aria-label={alt}
+        className="absolute inset-0 h-full w-full object-cover"
+        onError={() => setError(true)}
+      />
+    );
+  }
+
   return (
     <Image
       src={src}
       alt={alt}
       fill
       sizes="(max-width: 768px) 100vw, 280px"
-      className="object-cover"
+      className="object-cover object-top"
       onError={() => setError(true)}
     />
   );

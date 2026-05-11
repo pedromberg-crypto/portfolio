@@ -40,7 +40,7 @@ export type Cliente = {
   resumo: string;
   destaques: string[];
   link?: { url: string; label: string };
-  prints?: { src: string; alt: string }[];
+  prints?: { src: string; alt: string; type?: "image" | "video" }[];
   nota?: string;
 };
 
@@ -61,8 +61,14 @@ export const clientes: Cliente[] = [
       "10 fluxos operacionais derivados do MASTER (Copa 2026, Banger Pro, Esteira Quinzenal, Ativação Influencer, Kits M5, Bang Loop, 4 fluxos paid)",
       "Virou referência arquitetural pros outros 3 clientes do portfólio",
     ],
-    prints: [{ src: "/prints/bang-bang.jpg", alt: "Print do site Bang Bang em desenvolvimento" }],
-    nota: "Site em aprovação final do cliente — print de referência.",
+    prints: [
+      {
+        src: "/prints/bang-bang.jpg",
+        alt: "Hero mobile do site Bang Bang em desenvolvimento",
+        type: "image",
+      },
+    ],
+    nota: "Site em aprovação final do cliente — captura de referência.",
   },
   {
     slug: "hsr",
@@ -99,6 +105,13 @@ export const clientes: Cliente[] = [
       "Entregues no primeiro dia: CLAUDE.md, 9 docs de governança, 6 subagentes Claude Code, 4 slash commands",
       "Mesmo template aplicado em Bang Bang, HSR e Realizza — método transversal validado em 3 implantações",
     ],
+    prints: [
+      {
+        src: "/prints/realizza.png",
+        alt: "Pasta docs/ do projeto Realizza com os artefatos gerados pelo template em Stage 2",
+        type: "image",
+      },
+    ],
   },
   {
     slug: "felipe-villaca",
@@ -114,6 +127,13 @@ export const clientes: Cliente[] = [
       "Triagem automatizada por perguntas-chave → fila ordenada de atendimento humano",
       "Compliance CFM 1974/2011 embutido — peça candidata a violação trava antes do publish, com cadeia de custódia auditável",
       "Origem de cada lead rastreável até o criativo de tráfego pago (UTM + landing dedicada por canal)",
+    ],
+    prints: [
+      {
+        src: "/prints/felipe-villaca.png",
+        alt: "Painel de automações do CRM Felipe Villaça — fluxos de aquisição, venda, Instagram e marketing",
+        type: "image",
+      },
     ],
   },
 ];
