@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# pedromaia-site
 
-## Getting Started
+Site / currículo interativo de Pedro Maia · Gerente de Projetos · CEO Accellera.
 
-First, run the development server:
+One-page mobile-first. Next.js 15 + Tailwind v4 + shadcn/ui (Base UI) + next-themes. Deploy Vercel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Estrutura
+
+```
+app/
+  globals.css         paleta light/dark + tokens + animações
+  layout.tsx          fontes (Inter · Inter Tight · Geist Mono), ThemeProvider, metadata
+  page.tsx            compõe seções
+
+components/
+  sticky-nav.tsx      nav fixed top com toggle de tema
+  hero.tsx            nome + headline + 3 ganchos + CTA + foto placeholder
+  clients.tsx         4 squads em tabs (Bang Bang · HSR · Realizza · Felipe Villaça)
+  method.tsx          Template Bootstrap em 2 estágios
+  cases.tsx           6 peças do portfólio em cards expansíveis (Dialog)
+  timeline.tsx        trajetória 11 anos
+  stack.tsx           ferramentas operadas direto vs orquestradas via Claude Code
+  cta.tsx             bloco final com WhatsApp / e-mail / LinkedIn / CV
+  footer.tsx
+  theme-provider.tsx  next-themes wrapper
+  theme-toggle.tsx
+  icons.tsx           LinkedinIcon (lucide removeu o ícone)
+  ui/                 shadcn (Button · Badge · Card · Dialog · Tabs · Separator · Sheet)
+
+lib/
+  data.ts             fonte única dos dados (profile, ganchos, clientes, peças, timeline, stack)
+  utils.ts            cn helper do shadcn
+
+public/
+  prints/             colocar bang-bang.jpg e hsr.jpg aqui
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pendências antes de deployar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [ ] Substituir placeholder de foto em `components/hero.tsx` por `<Image src="/foto-pedro.jpg" ... />` quando arquivo estiver em `public/`.
+- [ ] Colocar prints `public/prints/bang-bang.jpg` e `public/prints/hsr.jpg`.
+- [ ] Exportar CV em PDF como `public/cv-pedro-maia.pdf` (o botão de download aponta pra esse path).
+- [ ] Definir domínio final e ajustar `metadataBase` em `app/layout.tsx`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Comandos
 
-## Learn More
+```bash
+npm run dev     # dev server em http://localhost:3000
+npm run build   # produção
+npm start       # roda build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Tema
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Default: dark.
+- Toggle: botão sun/moon na nav.
+- Paleta: preto profundo + accent azul elétrico no dark; off-white + azul elétrico mais saturado no light.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Acessibilidade
 
-## Deploy on Vercel
+- `lang="pt-BR"` no html.
+- Estados de foco visíveis (focus-visible:ring).
+- Imagens com `alt`.
+- Botões com `aria-label` onde sem texto visível.
+- Scroll suave via `scroll-behavior: smooth`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+vercel --prod
+```
