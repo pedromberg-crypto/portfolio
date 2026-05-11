@@ -139,6 +139,7 @@ function ClientCard({ cliente: c }: { cliente: Cliente }) {
           {c.prints && c.prints[0] ? (
             <PlaceholderPrint
               src={c.prints[0].src}
+              mobileSrc={c.prints[0].mobileSrc}
               alt={c.prints[0].alt}
               type={c.prints[0].type ?? "image"}
             />
@@ -165,10 +166,12 @@ function ClientCard({ cliente: c }: { cliente: Cliente }) {
 
 function PlaceholderPrint({
   src,
+  mobileSrc,
   alt,
   type,
 }: {
   src: string;
+  mobileSrc?: string;
   alt: string;
   type: "image" | "video";
 }) {
@@ -203,6 +206,30 @@ function PlaceholderPrint({
         className="absolute inset-0 h-full w-full object-cover"
         onError={() => setError(true)}
       />
+    );
+  }
+
+  // Mobile variant + desktop variant (art-direction por viewport)
+  if (mobileSrc) {
+    return (
+      <>
+        <Image
+          src={mobileSrc}
+          alt={alt}
+          fill
+          sizes="100vw"
+          className="object-cover object-top md:hidden"
+          onError={() => setError(true)}
+        />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="280px"
+          className="object-cover object-top hidden md:block"
+          onError={() => setError(true)}
+        />
+      </>
     );
   }
 

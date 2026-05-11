@@ -40,7 +40,12 @@ export type Cliente = {
   resumo: string;
   destaques: string[];
   link?: { url: string; label: string };
-  prints?: { src: string; alt: string; type?: "image" | "video" }[];
+  prints?: {
+    src: string;
+    mobileSrc?: string;
+    alt: string;
+    type?: "image" | "video";
+  }[];
   nota?: string;
 };
 
@@ -64,7 +69,8 @@ export const clientes: Cliente[] = [
     prints: [
       {
         src: "/prints/bang-bang.jpg",
-        alt: "Hero mobile do site Bang Bang em desenvolvimento",
+        mobileSrc: "/prints/bang-bang-mobile.png",
+        alt: "Hero do site Bang Bang em desenvolvimento",
         type: "image",
       },
     ],
@@ -89,7 +95,14 @@ export const clientes: Cliente[] = [
       url: "https://www.hospitalsaorafael.com/pt",
       label: "www.hospitalsaorafael.com",
     },
-    prints: [{ src: "/prints/hsr.jpg", alt: "Print do site do Hospital São Rafael em produção" }],
+    prints: [
+      {
+        src: "/prints/hsr.jpg",
+        mobileSrc: "/prints/hsr-mobile.png",
+        alt: "Print do site do Hospital São Rafael em produção",
+        type: "image",
+      },
+    ],
   },
   {
     slug: "realizza",
@@ -108,6 +121,7 @@ export const clientes: Cliente[] = [
     prints: [
       {
         src: "/prints/realizza.png",
+        mobileSrc: "/prints/realizza-mobile.png",
         alt: "Pasta docs/ do projeto Realizza com os artefatos gerados pelo template em Stage 2",
         type: "image",
       },
@@ -131,6 +145,7 @@ export const clientes: Cliente[] = [
     prints: [
       {
         src: "/prints/felipe-villaca.png",
+        mobileSrc: "/prints/felipe-villaca-mobile.png",
         alt: "Painel de automações do CRM Felipe Villaça — fluxos de aquisição, venda, Instagram e marketing",
         type: "image",
       },
