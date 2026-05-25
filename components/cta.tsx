@@ -2,7 +2,7 @@ import { MessageCircle, Mail, Download } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { LinkedinIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
-import { profile } from "@/lib/data";
+import { contato, type RouteProfile } from "@/lib/data";
 
 const ctaLink = cn(
   buttonVariants({ variant: "default", size: "lg" }),
@@ -17,7 +17,7 @@ const ctaGhost = cn(
   "rounded-full text-base h-12 px-6"
 );
 
-export function CTA() {
+export function CTA({ profile }: { profile: RouteProfile }) {
   return (
     <section
       id="contato"
@@ -35,18 +35,15 @@ export function CTA() {
           §07 — Contato
         </div>
         <h2 className="font-display font-bold tracking-tight text-3xl sm:text-5xl leading-[1.05]">
-          Vamos conversar?
+          {profile.ctaH2}
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-          O que construí na Accellera está consolidado — método, equipe, 4
-          squads em operação. Agora busco profundidade num produto único, em
-          vez de amplitude em 4 clientes. Essa é a transição que estou
-          buscando.
+          {profile.ctaP}
         </p>
 
         <div className="flex flex-wrap gap-3 justify-center pt-4">
           <a
-            href={`https://wa.me/${profile.telefoneLink}`}
+            href={`https://wa.me/${contato.telefoneLink}`}
             target="_blank"
             rel="noopener noreferrer"
             className={ctaLink}
@@ -54,12 +51,12 @@ export function CTA() {
             <MessageCircle className="size-4" />
             WhatsApp
           </a>
-          <a href={`mailto:${profile.email}`} className={ctaOutline}>
+          <a href={`mailto:${contato.email}`} className={ctaOutline}>
             <Mail className="size-4" />
             E-mail
           </a>
           <a
-            href={profile.linkedin}
+            href={contato.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className={ctaOutline}
@@ -67,14 +64,14 @@ export function CTA() {
             <LinkedinIcon className="size-4" />
             LinkedIn
           </a>
-          <a href="/cv-pedro-maia.pdf" download className={ctaGhost}>
+          <a href={profile.ctaPdfPath} download className={ctaGhost}>
             <Download className="size-4" />
-            Baixar CV em PDF
+            {profile.ctaPdfLabel}
           </a>
         </div>
 
         <div className="pt-6 text-sm text-muted-foreground font-mono">
-          {profile.telefone} · {profile.cidade}
+          {contato.telefone} · {contato.cidade}
         </div>
       </div>
     </section>

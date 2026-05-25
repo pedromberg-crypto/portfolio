@@ -22,16 +22,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pedro Maia · Gerente de Projetos",
+  metadataBase: new URL("https://pedroberg.com.br"),
+  title: {
+    default: "Pedro Maia Berg",
+    template: "%s",
+  },
   description:
-    "CEO da Accellera · 4 squads paralelas · 11 colaboradores ativos · método transversal de criação de sistema. Cobertura B2B + B2C, da mídia orgânica ao tráfego pago.",
-  metadataBase: new URL("https://pedromaia.dev"),
+    "Operador-fundador · CEO da Accellera · 4 contas em nichos distintos · 12 colaboradores em 3 níveis hierárquicos · stack moderna + IA aplicada em produção.",
   openGraph: {
-    title: "Pedro Maia · Gerente de Projetos",
-    description:
-      "4 squads paralelas · 11 colaboradores ativos · método transversal · cobertura B2B + B2C, da mídia orgânica ao tráfego pago.",
     locale: "pt_BR",
     type: "website",
+    siteName: "Pedro Maia Berg",
   },
 };
 
