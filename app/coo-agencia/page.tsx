@@ -8,31 +8,31 @@ import { Timeline } from "@/components/timeline";
 import { Stack } from "@/components/stack";
 import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
-import { profileHeadOfGrowth } from "@/lib/data";
+import { profileCooAgencia } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: profileHeadOfGrowth.metaTitle,
-  description: profileHeadOfGrowth.metaDescription,
+  title: profileCooAgencia.metaTitle,
+  description: profileCooAgencia.metaDescription,
   openGraph: {
-    title: profileHeadOfGrowth.metaTitle,
-    description: profileHeadOfGrowth.metaDescription,
+    title: profileCooAgencia.metaTitle,
+    description: profileCooAgencia.metaDescription,
     locale: "pt_BR",
     type: "website",
   },
 };
 
-export default function HeadOfGrowthPage() {
+export default function CooAgenciaPage() {
   return (
     <>
       <StickyNav />
       <main className="flex-1">
-        <Hero profile={profileHeadOfGrowth} />
+        <Hero profile={profileCooAgencia} />
         <Clients />
         <Method />
-        <Cases pecas={profileHeadOfGrowth.pecas} />
+        <Cases pecas={profileCooAgencia.pecas} />
         <Timeline />
         <Stack />
-        <CTA profile={profileHeadOfGrowth} />
+        <CTA profile={profileCooAgencia} />
       </main>
       <Footer />
     </>

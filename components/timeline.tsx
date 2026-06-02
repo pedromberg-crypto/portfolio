@@ -12,13 +12,14 @@ export function Timeline() {
             §05 — Trajetória
           </div>
           <h2 className="font-display font-bold tracking-tight text-3xl sm:text-4xl leading-tight">
-            11 anos · 9 como empreendedor direto
+            10 anos empreendedor · reentrada acelerada no corporativo
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Estágio (2015) → 8 anos operando negócio físico (2016-2024) →
-            marketing estratégico em transição (2025) → Accellera estruturada
-            e consolidada (2025-2026). A formalização como CEO foi continuação
-            de uma trajetória de empreendedor, não cargo recente isolado.
+            5 negócios próprios em paralelo (2014–2024) → reentrada como
+            Designer Gráfico Sênior (mai/2025) → Coordenador de Marketing em 4
+            meses (Feira Shop) → CEO da Accellera 1 mês depois. Trajetória
+            híbrida de operador-fundador, não cargo concedido por linearidade
+            corporativa.
           </p>
         </div>
 

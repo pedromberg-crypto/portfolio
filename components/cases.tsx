@@ -10,9 +10,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { pecas, type Peca } from "@/lib/data";
+import { type Peca } from "@/lib/data";
 
-export function Cases() {
+export function Cases({ pecas }: { pecas: Peca[] }) {
   return (
     <section id="casos" className="py-20 sm:py-28 scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -21,12 +21,11 @@ export function Cases() {
             §03 — Casos
           </div>
           <h2 className="font-display font-bold tracking-tight text-3xl sm:text-4xl leading-tight">
-            6 peças do portfólio
+            {pecas.length} casos reais — números, decisão, padrão
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Artefatos reais da Accellera — governança, método, decisão técnica,
-            ponte com stakeholder difícil e CRM em produção. Dados de pessoa,
-            valores e métricas brutas anonimizados.
+            Artefatos da Accellera com métrica explícita. Dados de pessoa,
+            valores brutos e detalhes sensíveis anonimizados.
           </p>
         </div>
 

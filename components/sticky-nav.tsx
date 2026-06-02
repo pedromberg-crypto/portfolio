@@ -15,8 +15,8 @@ const SECTIONS = [
   { id: "operacao", label: "Operação" },
   { id: "metodo", label: "Método" },
   { id: "casos", label: "Casos" },
-  { id: "diagnostico", label: "Para esta empresa" },
   { id: "trajetoria", label: "Trajetória" },
+  { id: "stack", label: "Stack" },
   { id: "contato", label: "Contato" },
 ];
 
@@ -47,7 +47,7 @@ export function StickyNav() {
         >
           <span className="text-primary">PM</span>
           <span className="text-muted-foreground/70 ml-2 hidden sm:inline font-sans font-normal text-sm">
-            Pedro Maia
+            Pedro Maia Berg
           </span>
         </a>
 
@@ -84,7 +84,7 @@ export function StickyNav() {
                 <SheetTitle className="font-display text-lg tracking-tight">
                   <span className="text-primary">PM</span>
                   <span className="text-muted-foreground/70 ml-2 font-sans font-normal text-sm">
-                    Pedro Maia
+                    Pedro Maia Berg
                   </span>
                 </SheetTitle>
               </div>
@@ -105,7 +105,7 @@ export function StickyNav() {
                 ))}
               </ul>
               <div className="mt-auto p-6 border-t border-border text-xs text-muted-foreground font-mono">
-                Contagem, MG · Gestão atual
+                Contagem, MG · pedroberg.com.br
               </div>
             </SheetContent>
           </Sheet>

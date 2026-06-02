@@ -6,9 +6,9 @@ import { ArrowDown, MessageCircle, Mail } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { LinkedinIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
-import { profile, ganchos } from "@/lib/data";
+import { contato, type RouteProfile } from "@/lib/data";
 
-export function Hero() {
+export function Hero({ profile }: { profile: RouteProfile }) {
   return (
     <section
       id="topo"
@@ -25,11 +25,11 @@ export function Hero() {
           <div className="space-y-6 fade-up">
             <div className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-muted-foreground font-mono">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              {profile.cidade} · operação consolidada · buscando próximo passo
+              {profile.topoStatus}
             </div>
 
             <h1 className="font-display font-bold tracking-tight text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
-              {profile.nome}
+              {contato.nome}
               <span className="block text-primary mt-1 sm:mt-2">
                 {profile.cargo}
               </span>
@@ -41,7 +41,7 @@ export function Hero() {
 
             <div className="flex flex-wrap gap-3 pt-2">
               <a
-                href={`https://wa.me/${profile.telefoneLink}`}
+                href={`https://wa.me/${contato.telefoneLink}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
@@ -53,17 +53,17 @@ export function Hero() {
                 Fala comigo
               </a>
               <a
-                href={`mailto:${profile.email}`}
+                href={`mailto:${contato.email}`}
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "rounded-full text-base h-12 px-6"
                 )}
               >
                 <Mail className="size-4" />
-                {profile.email}
+                {contato.email}
               </a>
               <a
-                href={profile.linkedin}
+                href={contato.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
@@ -82,7 +82,7 @@ export function Hero() {
             <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border border-border bg-muted">
               <Image
                 src="/foto-pedro.jpg"
-                alt="Pedro Maia"
+                alt={contato.nome}
                 fill
                 sizes="(max-width: 640px) 160px, 208px"
                 className="object-cover"
@@ -99,10 +99,10 @@ export function Hero() {
         <div className="mt-14 sm:mt-20">
           <div className="mb-4 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground/80 font-mono">
             <span className="inline-block h-1 w-6 bg-primary/60" />
-            Gestão atual · momento presente
+            Sinais fortes · números reais
           </div>
           <div className="grid gap-4 sm:gap-6 sm:grid-cols-3">
-            {ganchos.map((g, i) => (
+            {profile.ganchos.map((g, i) => (
               <div
                 key={g.numero}
                 className="rounded-2xl border border-border bg-card p-5 sm:p-6 fade-up"
